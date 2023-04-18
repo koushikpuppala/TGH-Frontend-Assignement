@@ -63,9 +63,13 @@ export default function Card({ data }) {
 										className='h-5 w-5 text-white'
 										aria-hidden='true'
 										onClick={() => {
-											bookmarks.includes(data._id)
-												? null
-												: bookmarks.push(data._id)
+											if (bookmarks) {
+												bookmarks.includes(data._id)
+													? null
+													: bookmarks.push(data._id)
+											} else {
+												bookmarks = [data._id]
+											}
 											setBookmarks(bookmarks)
 											localStorage.setItem(
 												'bookmarks',
