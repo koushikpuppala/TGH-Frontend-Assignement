@@ -66,6 +66,7 @@ export default function Card({ data }) {
 											if (!bookmarks.includes(data._id)) {
 												bookmarks.push(data._id)
 											}
+											setBookmarks(bookmarks)
 											localStorage.setItem(
 												'bookmarks',
 												JSON.stringify(bookmarks)

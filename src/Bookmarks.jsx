@@ -18,6 +18,7 @@ function Bookmarks() {
 			console.log(bookmark)
 			setIsLoading(false)
 		} catch (error) {
+			console.log(error)
 			setIsLoading(false)
 			setData([
 				{
@@ -33,10 +34,10 @@ function Bookmarks() {
 	useEffect(() => {
 		bookmarks.map((bookmark) => {
 			console.log(bookmark)
-			return getData(bookmark)
+			getData(bookmark)
 		})
 		bookmarks.length === 0 && setIsLoading(false)
-	})
+	}, [bookmarks])
 
 	if (isLoading) return <Loading />
 
