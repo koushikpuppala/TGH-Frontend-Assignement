@@ -7,7 +7,7 @@ export function useAppContext() {
 }
 
 export function AppContextProvider({ children }) {
-	const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks')))
+	const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks')) || [])
 	const [tags, setTags] = useState([])
 	const [selection, setSelection] = useState({
 		name: 'Select a tag',
