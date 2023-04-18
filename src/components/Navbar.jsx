@@ -1,5 +1,4 @@
 import { Disclosure } from '@headlessui/react'
-import { Link } from 'react-router-dom'
 
 function Navbar() {
 	return (

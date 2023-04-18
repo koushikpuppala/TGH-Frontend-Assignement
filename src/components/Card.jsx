@@ -14,7 +14,7 @@ export default function Card({ data }) {
 		} else {
 			setBookmarked(false)
 		}
-	}, [data])
+	}, [data, bookmarks])
 
 	return (
 		<div className='container flex items-center justify-center'>
@@ -63,11 +63,9 @@ export default function Card({ data }) {
 										className='h-5 w-5 text-white'
 										aria-hidden='true'
 										onClick={() => {
-											bookmarks.includes(data._id)
-												? null
-												: bookmarks.push(data._id)
-
-											setBookmarks(bookmarks)
+											if (!bookmarks.includes(data._id)) {
+												bookmarks.push(data._id)
+											}
 											localStorage.setItem(
 												'bookmarks',
 												JSON.stringify(bookmarks)

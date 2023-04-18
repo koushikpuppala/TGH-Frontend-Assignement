@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Card from './components/Card'
@@ -20,7 +18,6 @@ function Bookmarks() {
 			console.log(bookmark)
 			setIsLoading(false)
 		} catch (error) {
-			clg(error)
 			setIsLoading(false)
 			setData([
 				{
@@ -36,10 +33,10 @@ function Bookmarks() {
 	useEffect(() => {
 		bookmarks.map((bookmark) => {
 			console.log(bookmark)
-			getData(bookmark)
+			return getData(bookmark)
 		})
 		bookmarks.length === 0 && setIsLoading(false)
-	}, [bookmarks])
+	})
 
 	if (isLoading) return <Loading />
 

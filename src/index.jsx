@@ -8,14 +8,14 @@ import { AppContextProvider } from './context'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<AppContextProvider>
-		{/* <React.StrictMode> */}
-		<Router>
-			<Routes>
-				<Route path='/' element={<App />} />
-				<Route path='/bookmarks' element={<Bookmarks />} />
-				<Route path='*' element={<h1>404: Not Found</h1>} />
-			</Routes>
-		</Router>
-		{/* </React.StrictMode> */}
+		<React.StrictMode>
+			<Router>
+				<Routes>
+					<Route exact path='/' element={<App />} />
+					<Route exact path='/bookmarks' element={<Bookmarks />} />
+					<Route path='*' element={<h1>404: Not Found</h1>} />
+				</Routes>
+			</Router>
+		</React.StrictMode>
 	</AppContextProvider>
 )
